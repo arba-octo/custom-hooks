@@ -1,3 +1,32 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "quotes": [2, "single", { "avoidEscape": true }],
+    "semi": [2, "always"],
+    "no-multi-spaces": ["error", { "ignoreEOLComments": false }],
+    "no-nested-ternary": "error",
+    "no-multi-str": "error",
+    "no-negated-condition": "error",
+    "no-multiple-empty-lines": "error",
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "object-curly-spacing": ["error", "always"],
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "max-len": ["error", {
+      "code": 120,
+      "ignoreUrls": true,
+      "ignoreComments": true,
+      "ignoreTemplateLiterals": true,
+      "ignoreStrings": true,
+      "ignoreTrailingComments": true
+    }],
+    "no-console": ["error", { "allow": ["warn", "info", "error"] }],
+    "@typescript-eslint/no-var-requires": 0
+  },
+  "ignorePatterns": ["*.d.ts"]
 }
