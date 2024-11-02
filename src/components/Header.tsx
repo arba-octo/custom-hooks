@@ -2,11 +2,11 @@ import Image from 'next/image';
 
 const Header = () => {
   return (
-    <header className="max-w-7xl mx-auto mt-3 px-5 flex gap-x-5">
-      <Image src="/logo.svg" alt="Логотип" width="90" height="23"></Image>
+    <header className="max-w-7xl mx-auto mt-3 px-20 flex gap-x-5">
+      <Image src="/images/logo.svg" alt="Логотип" width="90" height="23"></Image>
       <div className="flex grow gap-x-2 bg-slate-100 rounded-lg p-2 text-slate-400">
         <svg className="m-auto" viewBox="0 0 16 16" width="16" height="16" stroke="none">
-          <path d="M9.532 9.539A5 5 0 102.468 2.46 5 5 0 009.532 9.54zm0 0L15 15" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
+          <path d="M9.532 9.539A5 5 0 102.468 2.46 5 5 0 009.532 9.54zm0 0L15 15" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" vectorEffect="non-scaling-stroke"></path>
         </svg>
         <input type="text" placeholder="Поиск" className="w-full bg-slate-100 outline-none"/>
       </div>
