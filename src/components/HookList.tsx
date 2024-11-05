@@ -1,24 +1,22 @@
+import { Inter700 } from '@/styles/fonts';
 
-const HookList = () => {
+type TProps = {
+    hooksCollection: {
+        hookName: string,
+        hookCode: string
+    }[]
+}
+
+const HookList = ({ hooksCollection }: TProps) => {
   return (
-    <div className="flex max-w-7xl mx-auto px-20 mt-3">
-      <h1>
+    <div className="max-w-7xl mx-auto px-20 mt-3">
+      <h1 className={`${Inter700.className} text-[35px] text-center`}>
           Hooks
       </h1>
       <ul>
-        <li>useCookies</li>
-        <li>useDebounce</li>
-        <li>useForceUpdate</li>
-        <li>useHover</li>
-        <li>useIncrement</li>
-        <li>useIsMobile</li>
-        <li>useLocalStorage</li>
-        <li>useMeasure</li>
-        <li>useScript</li>
-        <li>useScrollFreeze</li>
-        <li>useTheme</li>
-        <li>useToggle</li>
-        <li>useWindowWidth</li>
+        {hooksCollection.map((hookItem) => {
+          return <li key={hookItem.hookName}>{hookItem.hookName}</li>;
+        })}
       </ul>
     </div>
   );
