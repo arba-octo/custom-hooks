@@ -9,12 +9,13 @@ const getCustomHooks = () => {
   const hooksPath = path.join(process.cwd(), 'collections');
   const filenames = fs.readdirSync(hooksPath);
 
-  return filenames.reduce((acc, hookName: string) => {
-    const filePath = path.join(hooksPath, hookName);
-    const hookCode = fs.readFileSync(filePath, 'utf-8');
 
-    return acc.concat({ hookName, hookCode });
-  }, [] as { hookName: string, hookCode: string }[]);
+  return filenames.reduce((acc, fileName: string) => {
+    const filePath = path.join(hooksPath, fileName);
+    const hookCode = fs.readFileSync(filePath, 'utf-8');
+    const hookName = fileName.slice(0, -4);
+    return acc.concat({ fileName, hookCode, hookName });
+  }, [] as { fileName: string, hookCode: string, hookName: string }[]);
 };
 
 function Home() {
