@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Line from '@/components/Line';
 import Title from '@/components/Title';
 import HookList from '@/components/HookList';
+import Footer from '@/components/Footer';
 
 const getCustomHooks = () => {
   const hooksPath = path.join(process.cwd(), 'collections');
@@ -27,6 +28,7 @@ function Home() {
       <Line/>
       <Title/>
       <HookList hooksCollection={hooksCollectionData} />
+      <Footer/>
     </div>
   );
 }

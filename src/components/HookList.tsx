@@ -9,7 +9,7 @@ type TProps = {
 
 const HookList = ({ hooksCollection }: TProps) => {
   return (
-    <div className="bg-slate-100">
+    <div className="bg-slate-100 pb-[50px]">
       <div className="max-w-7xl mx-auto px-20">
 
         <h1 className={`${Inter700.className} text-[35px] text-center`}>
