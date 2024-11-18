@@ -1,4 +1,5 @@
 import { Inter700 } from '@/styles/fonts';
+import { useState } from 'react';
 
 type TProps = {
     hooksCollection: {
@@ -8,6 +9,7 @@ type TProps = {
 }
 
 const HookList = ({ hooksCollection }: TProps) => {
+
   return (
     <div className="bg-slate-100 pb-[50px]">
       <div className="max-w-7xl mx-auto px-20">
@@ -17,7 +19,11 @@ const HookList = ({ hooksCollection }: TProps) => {
         </h1>
         <ul className="text-slate-700">
           {hooksCollection.map((hookItem) => {
-            return <li className="flex justify-between items-center bg-white mb-3 px-5 py-3 rounded-xl text-[26px] hover:text-slate-400 cursor-pointer" key={hookItem.hookName}>
+            return <li
+              className="flex justify-between items-center bg-white mb-3 px-5 py-3 rounded-xl text-[26px] hover:text-slate-400 cursor-pointer"
+              key={hookItem.hookName}
+              onClick={}
+            >
               {hookItem.hookName}
               <svg viewBox="0 0 16 16" fill="currentColor" width="20px" height="20px">
                 <path d="M14.904 0H6.43105C5.82718 0 5.33594 0.463787 5.33594 1.03384V3.55556H7.11314V1.67777C7.06052 1.67777 7.11314 1.6281 7.11314 1.67777L14.2167 1.77778L14.222 8.88889C14.2746 8.88889 14.222 8.93859 14.222 8.88889H12.4395V10.6667H14.904C15.5079 10.6667 15.9992 10.3479 15.9992 9.77778V1.03384C15.9991 0.463787 15.5079 0 14.904 0Z" fill="currentColor"></path>

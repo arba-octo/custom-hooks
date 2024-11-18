@@ -5,6 +5,8 @@ import Line from '@/components/Line';
 import Title from '@/components/Title';
 import HookList from '@/components/HookList';
 import Footer from '@/components/Footer';
+import Modal from '@/components/Modal';
+import ModalProvider from '@/providers/ModalProvider';
 
 const getCustomHooks = () => {
   const hooksPath = path.join(process.cwd(), 'collections');
@@ -23,13 +25,17 @@ function Home() {
   const hooksCollectionData = getCustomHooks();
 
   return (
-    <div>
-      <Header/>
-      <Line/>
-      <Title/>
-      <HookList hooksCollection={hooksCollectionData} />
-      <Footer/>
-    </div>
+    <ModalProvider>
+      <div>
+        <Header/>
+        <Line/>
+        <Title/>
+        <HookList hooksCollection={hooksCollectionData} />
+        <Footer/>
+        <Modal hooksCollection={hooksCollectionData} />
+      </div>
+    </ModalProvider>
+
   );
 }
 
