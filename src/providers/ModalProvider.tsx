@@ -15,7 +15,7 @@ function ModalProvider({ children }: TProps) {
   };
 
   return (
-    <ModalContext.Provider value={{}}>
+    <ModalContext.Provider value={{ isOpen, handlToggle }}>
       {children}
     </ModalContext.Provider>
   );

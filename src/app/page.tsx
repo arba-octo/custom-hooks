@@ -5,8 +5,8 @@ import Line from '@/components/Line';
 import Title from '@/components/Title';
 import HookList from '@/components/HookList';
 import Footer from '@/components/Footer';
-import Modal from '@/components/Modal';
 import ModalProvider from '@/providers/ModalProvider';
+import Modal from '@/components/Modal';
 
 const getCustomHooks = () => {
   const hooksPath = path.join(process.cwd(), 'collections');
@@ -17,11 +17,11 @@ const getCustomHooks = () => {
     const filePath = path.join(hooksPath, fileName);
     const hookCode = fs.readFileSync(filePath, 'utf-8');
     const hookName = fileName.slice(0, -4);
-    return acc.concat({ fileName, hookCode, hookName });
-  }, [] as { fileName: string, hookCode: string, hookName: string }[]);
+    return acc.concat({ hookCode, hookName });
+  }, [] as { hookCode: string, hookName: string }[]);
 };
 
-function Home() {
+function HomePage() {
   const hooksCollectionData = getCustomHooks();
 
   return (
@@ -32,11 +32,11 @@ function Home() {
         <Title/>
         <HookList hooksCollection={hooksCollectionData} />
         <Footer/>
-        <Modal hooksCollection={hooksCollectionData} />
+        <Modal />
       </div>
     </ModalProvider>
 
   );
 }
 
-export default Home;
+export default HomePage;
