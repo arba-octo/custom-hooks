@@ -7,17 +7,21 @@ import { ModalContext } from '@/context/ModalContext';
 
 function Modal() {
 
-  const { isOpen, handlToggle } = useContext(ModalContext);
+  const { isOpen, hookCode, changeOpen } = useContext(ModalContext);// Подписываем компонент на контекст
 
   return (
-    <div className={`${isOpen ? '' : 'hidden'} fixed top-0 right-0 left-0 bottom-0 bg-amber-100`}>
-      <div className="flex justify-center mt-10">
-        <div className='max-w-[800px] bg-orange-400 mx-10'>
+    <div
+      className={`${isOpen ? '' : ' opacity-0 hidden'} fixed top-0 right-0 left-0 bottom-0`}
+      onClick={() => changeOpen()}
+    >
+      <div className="flex justify-center mt-10 ">
+        <div className='max-w-[800px] p-10 rounded-md bg-orange-400'>
           {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
           {/* @ts-expect-error*/}
-          <ReactMarkdown renderers={renderers}>{'hookCode'}</ReactMarkdown>
+          <ReactMarkdown renderers={renderers}>{hookCode}</ReactMarkdown>
         </div>
       </div>
+
     </div>
 
 
