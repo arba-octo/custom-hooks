@@ -10,11 +10,11 @@ type TProps = {
         hookCode: string
     }[]
 }
-type THookCode = string
+type THookCode = string;
 
 const HookList = ({ hooksCollection }: TProps ) => {
 
-  const { handlToggle } = useContext( ModalContext );
+  const { changeOpen, changeHookCode } = useContext( ModalContext ); // Подписываем компонент на контекст
 
   return (
     <div className="bg-slate-100 pb-[50px]">
@@ -28,7 +28,7 @@ const HookList = ({ hooksCollection }: TProps ) => {
             return <li
               className="flex justify-between items-center bg-white mb-3 px-5 py-3 rounded-xl text-[26px] hover:text-slate-400 cursor-pointer"
               key={hookItem.hookName}
-              onClick={() => handlToggle()}
+              onClick={() => {changeOpen();changeHookCode(hookItem.hookCode);}}
             >
               {hookItem.hookName}
               <svg viewBox="0 0 16 16" fill="currentColor" width="20px" height="20px">
