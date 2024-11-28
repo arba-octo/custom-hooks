@@ -4,7 +4,8 @@ import FooterLinksList from '@/components/FooterLinksList';
 
 const Footer = () => {
   return (
-    <div className="grid grid-cols-[400px,_1fr] max-w-7xl gap-x-20 mx-auto px-20 py-20 mt-[20px]">
+    <div className="grid grid-cols-[400px,_1fr] max-w-7xl gap-x-20 mx-auto px-20 py-20 mt-[20px]
+    max-[768px]:px-5">
       <div className="flex flex-wrap justify-between gap-[10px] w-[400px]">
         <span className="text-[28px]">Contributing?</span>
         <LinkLikeButton />
