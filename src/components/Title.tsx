@@ -6,14 +6,14 @@ import LinkLikeButton from '@/components/LinkLikeButton';
 const Title = () => {
   return (
     <div>
-      <div className="flex max-w-7xl mx-auto px-20 items-center mt-3 gap-10">
+      <div className="flex max-w-7xl mx-auto px-20 items-center mt-3 gap-10 max-[768px]:px-5">
         <div className="w-5/12">
           <h1 className={`${Inter700.className} text-[35px]`}>React Custom Hook</h1>
           <p className={`${Inter200.className} pt-2 text-[15px]`}>Will you add your React Custom Hook to the RCOH project?</p>
           <p className={`${Inter200.className} pt-2 pb-3 text-[15px] text-slate-500`}>A custom Hook is a JavaScript function whose name starts with «use» and that may call other Hooks.</p>
           <LinkLikeButton />
         </div>
-        <Image className='mx-auto' src="/images/pc2.png" alt="Monitor" width="300" height="300"></Image>
+        <Image className='mx-auto max-[768px]:hidden' src="/images/pc2.png" alt="Monitor" width="300" height="300"></Image>
       </div>
       <svg className="rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" width="100%" height="50px" preserveAspectRatio="none">
         <path className="elementor-shape-fill" d="M421.9,6.5c22.6-2.5,51.5,0.4,75.5,5.3c23.6,4.9,70.9,23.5,100.5,35.7c75.8,32.2,133.7,44.5,192.6,49.7

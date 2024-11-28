@@ -18,7 +18,7 @@ const HookList = ({ hooksCollection }: TProps ) => {
 
   return (
     <div className="bg-slate-100 pb-[50px]">
-      <div className="max-w-7xl mx-auto px-20">
+      <div className="max-w-7xl mx-auto px-20 max-[768px]:px-5">
 
         <h1 className={`${Inter700.className} text-[35px] text-center`}>
                 Hooks
@@ -39,7 +39,6 @@ const HookList = ({ hooksCollection }: TProps ) => {
           })}
         </ul>
       </div>
-
     </div>
   );
 };
