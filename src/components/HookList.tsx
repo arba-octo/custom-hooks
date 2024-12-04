@@ -43,8 +43,8 @@ const HookList = ({ hooksCollection }: TProps) => {
           })}
         </ul>
       </div>
+
     </div>
   );
 };
-
 export default HookList;
