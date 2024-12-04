@@ -5,8 +5,10 @@ import Line from '@/components/Line';
 import Title from '@/components/Title';
 import HookList from '@/components/HookList';
 import Footer from '@/components/Footer';
-import ModalProvider from '@/providers/ModalProvider';
 import Modal from '@/components/Modal';
+import ModalOpenContextProvider from '@/context/ModalOpenContext';
+import ModalHookCodeContextProvider from '@/context/ModalHookCodeContext';
+import ModalCloseContextProvider from '@/context/ModalCloseContext';
 
 const getCustomHooks = () => {
   const hooksPath = path.join(process.cwd(), 'collections');
@@ -17,26 +19,30 @@ const getCustomHooks = () => {
     const filePath = path.join(hooksPath, fileName);
     const hookCode = fs.readFileSync(filePath, 'utf-8');
     const hookName = fileName.slice(0, -4);
-    return acc.concat({ hookCode, hookName });
-  }, [] as { hookCode: string, hookName: string }[]);
+    return acc.concat({ fileName, hookCode, hookName });
+  }, [] as { fileName: string, hookCode: string, hookName: string }[]);
 };
 
-function HomePage() {
+function Home() {
   const hooksCollectionData = getCustomHooks();
 
   return (
-    <ModalProvider>
-      <div>
-        <Header/>
-        <Line/>
-        <Title/>
-        <HookList hooksCollection={hooksCollectionData} />
-        <Footer/>
-        <Modal />
-      </div>
-    </ModalProvider>
+    <ModalOpenContextProvider>
+      <ModalHookCodeContextProvider>
+        <div>
+          <Header/>
+          <Line/>
+          <Title/>
+          <ModalCloseContextProvider>
+            <HookList hooksCollection={hooksCollectionData} />
+            <Modal />
+          </ModalCloseContextProvider>
+          <Footer/>
+        </div>
+      </ModalHookCodeContextProvider>
+    </ModalOpenContextProvider>
 
   );
 }
 
-export default HomePage;
+export default Home;
