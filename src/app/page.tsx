@@ -6,7 +6,9 @@ import Title from '@/components/Title';
 import HookList from '@/components/HookList';
 import Footer from '@/components/Footer';
 import Modal from '@/components/Modal';
-import ModalProvider from '@/providers/ModalProvider';
+import ModalOpenContextProvider from '@/context/ModalOpenContext';
+import ModalHookCodeContextProvider from '@/context/ModalHookCodeContext';
+import ModalCloseContextProvider from '@/context/ModalCloseContext';
 
 const getCustomHooks = () => {
   const hooksPath = path.join(process.cwd(), 'collections');
@@ -25,16 +27,20 @@ function Home() {
   const hooksCollectionData = getCustomHooks();
 
   return (
-    <ModalProvider>
-      <div>
-        <Header/>
-        <Line/>
-        <Title/>
-        <HookList hooksCollection={hooksCollectionData} />
-        <Footer/>
-        <Modal hooksCollection={hooksCollectionData} />
-      </div>
-    </ModalProvider>
+    <ModalOpenContextProvider>
+      <ModalHookCodeContextProvider>
+        <div>
+          <Header/>
+          <Line/>
+          <Title/>
+          <ModalCloseContextProvider>
+            <HookList hooksCollection={hooksCollectionData} />
+            <Modal />
+          </ModalCloseContextProvider>
+          <Footer/>
+        </div>
+      </ModalHookCodeContextProvider>
+    </ModalOpenContextProvider>
 
   );
 }
