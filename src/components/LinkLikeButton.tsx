@@ -1,8 +1,10 @@
+type TProps = {
+  width: string
+};
 
-
-const LinkLikeButton = (w-class) => {
+const LinkLikeButton = (props: TProps) => {
   return (
-    <a href="#" className=`{flex items-center justify-center bg-[#2b3b52] rounded-md text-white max-w-[185px] ${w-class} h-[2.5rem] text-[15px]`}>
+    <a href="#" className={`${props.width} flex items-center justify-center bg-[#2b3b52] rounded-md text-white text-[15px] max-[1024px]:`}>
       Add custom Hook
     </a>
   );
