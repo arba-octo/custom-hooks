@@ -17,7 +17,7 @@ const Title = () => {
           <h1 className={`${Inter700.className} text-[35px] max-[768px]:justify-center`}>React Custom Hook</h1>
           <p className={`${Inter200.className} pt-2 text-[15px] `}>Will you add your React Custom Hook to the RCOH project?</p>
           <p className={`${Inter200.className} pt-2 pb-3 text-[15px] text-slate-500`}>A custom Hook is a JavaScript function whose name starts with «use» and that may call other Hooks.</p>
-          <LinkLikeButton width='w-full max-w-[185px] h-[2.5rem] max-[870px]:max-w-full'/>
+          <LinkLikeButton width='h-[2.5rem] max-[870px]:max-w-full'/>
         </div>
         <Image className='mx-auto max-[1024px]:hidden max-[1024px]:w-0' src="/images/pc2.png" alt="Monitor" width="300" height="300"></Image>
       </div>
