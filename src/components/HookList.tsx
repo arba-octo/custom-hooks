@@ -4,7 +4,6 @@ import { Inter700 } from '@/styles/fonts';
 import { useContext } from 'react';
 import { ModalOpenContext } from '@/context/ModalOpenContext';
 import { ModalHookCodeContext } from '@/context/ModalHookCodeContext';
-import { ModalCloseContext } from '@/context/ModalCloseContext';
 
 type TProps = {
     hooksCollection: {
@@ -14,9 +13,8 @@ type TProps = {
 }
 
 const HookList = ({ hooksCollection }: TProps) => {
-  const { toOpen } = useContext(ModalOpenContext);
+  const { toToggleOpen } = useContext(ModalOpenContext);
   const { toDoHook } = useContext(ModalHookCodeContext);
-  const { toClose } = useContext(ModalCloseContext);
 
   return (
     <div className="bg-slate-100 pb-[50px]">
@@ -30,9 +28,8 @@ const HookList = ({ hooksCollection }: TProps) => {
               className="flex justify-between items-center bg-white mb-3 px-5 py-3 rounded-xl text-[26px] hover:text-slate-400 cursor-pointer"
               key={hookItem.hookName}
               onClick={() => {
-                toOpen();
+                toToggleOpen();
                 toDoHook(hookItem.hookCode, hookItem.hookName);
-                toClose();
               }}>
               {hookItem.hookName}
               <svg viewBox="0 0 16 16" fill="currentColor" width="20px" height="20px">

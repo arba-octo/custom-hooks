@@ -17,6 +17,7 @@ function ModalCloseContextProvider({ children }: TProps) {
   const [isClose, setClose] = useState(true);
   const toClose = () => {
     setClose(!isClose);
+
   };
 
   return (
