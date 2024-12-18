@@ -15,7 +15,7 @@ type TProps = {
 
 const HookList = ({ hooksCollection }: TProps) => {
   const { toOpen } = useContext(ModalOpenContext);
-  const { toDoHookCode } = useContext(ModalHookCodeContext);
+  const { toDoHook } = useContext(ModalHookCodeContext);
   const { toClose } = useContext(ModalCloseContext);
 
   return (
@@ -31,7 +31,7 @@ const HookList = ({ hooksCollection }: TProps) => {
               key={hookItem.hookName}
               onClick={() => {
                 toOpen();
-                toDoHookCode(hookItem.hookCode);
+                toDoHook(hookItem.hookCode, hookItem.hookName);
                 toClose();
               }}>
               {hookItem.hookName}

@@ -2,26 +2,28 @@
 import { createContext, ReactNode, useState, } from 'react';
 
 type THookCode = string
+type THookName = string
 type TModalHookCodeContext = {
     hookCode: string;
-    toDoHookCode: (hookCode: THookCode) => void;
+    hookName: string;
+    toDoHook: (hookCode: THookCode, hookName: THookName) => void;
 }
 type TProps = {
     children: ReactNode
 }
 
-
 export const ModalHookCodeContext = createContext({} as TModalHookCodeContext);
 
 function ModalHookCodeContextProvider({ children }: TProps) {
-
   const [hookCode, setHookCode] = useState('');
-  const toDoHookCode = (hookCode: THookCode) => {
+  const [hookName, setHookName] = useState('');
+  const toDoHook = (hookCode: THookCode, hookName: THookName) => {
     setHookCode(hookCode);
+    setHookName(hookName);
   };
 
   return (
-    <ModalHookCodeContext.Provider value={{ hookCode, toDoHookCode }}>
+    <ModalHookCodeContext.Provider value={{ hookCode, hookName, toDoHook }}>
       {children}
     </ModalHookCodeContext.Provider>
   );

@@ -2,23 +2,23 @@ import Image from 'next/image';
 
 const Header = () => {
   return (
-    <header className="flex gap-x-5 max-w-7xl mx-auto mt-3 px-20
-    max-[768px]:grid max-[768px]:grid-rows-2 max-[768px]:grid-cols-2 max-[768px]:justify-between max-[768px]:px-5">
+    <header className="flex gap-x-5 gap-y-2 max-w-7xl mx-auto mt-3 px-20
+     max-[768px]:flex-wrap max-[768px]:justify-between max-[768px]:px-5">
       <Image
-        className="max-[768px]:order-1"
+        className="max-[768px]:order-1 grow-0"
         src="/images/logo.svg"
         alt="Логотип"
         width="90"
-        height="23"></Image>
-      <div className="flex grow gap-x-2 bg-slate-100 rounded-lg p-2 text-slate-400
-      max-[768px]:order-3 max-[768px]:col-start-1 max-[768px]:col-end-3">
+        height="23">
+      </Image>
+      <div className="flex grow order-2 gap-x-2 bg-slate-100 rounded-lg p-2 text-slate-400
+      max-[768px]:order-3 max-[768px]:w-full">
         <svg className="m-auto" viewBox="0 0 16 16" width="16" height="16" stroke="none">
           <path d="M9.532 9.539A5 5 0 102.468 2.46 5 5 0 009.532 9.54zm0 0L15 15" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" vectorEffect="non-scaling-stroke"></path>
         </svg>
         <input type="text" placeholder="Поиск" className="w-full bg-slate-100 outline-none"/>
       </div>
-      <a className="flex flex-row gap-x-3 my-auto hover:text-slate-400" href="https://github.com/arba-octo/custom-hooks
-      max-[768px]:order-2">
+      <a className="flex flex-row order-3 grow-0 gap-3 my-auto hover:text-slate-400 max-[768px]:order-2" href="https://github.com/arba-octo/custom-hooks">
         <span>add hook</span>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 16" fill="none" width="30" height="30">
           <g clipPath="url(githublogo)">
