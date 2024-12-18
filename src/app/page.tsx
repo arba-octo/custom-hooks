@@ -5,27 +5,26 @@ import Line from '@/components/Line';
 import Title from '@/components/Title';
 import HookList from '@/components/HookList';
 import Footer from '@/components/Footer';
-import Modal from '@/components/Modal';
+// import Modal from '@/components/Modal';
 import ModalOpenContextProvider from '@/context/ModalOpenContext';
 import ModalHookCodeContextProvider from '@/context/ModalHookCodeContext';
 import ModalCloseContextProvider from '@/context/ModalCloseContext';
+import ModalProvider from '@/providers/ModalProvider';
+
 
 const getCustomHooks = () => {
   const hooksPath = path.join(process.cwd(), 'collections');
   const filenames = fs.readdirSync(hooksPath);
-
-
   return filenames.reduce((acc, fileName: string) => {
     const filePath = path.join(hooksPath, fileName);
     const hookCode = fs.readFileSync(filePath, 'utf-8');
     const hookName = fileName.slice(0, -4);
-    return acc.concat({ fileName, hookCode, hookName });
-  }, [] as { fileName: string, hookCode: string, hookName: string }[]);
+    return acc.concat({ hookCode, hookName });
+  }, [] as { hookCode: string, hookName: string }[]);
 };
 
 function Home() {
   const hooksCollectionData = getCustomHooks();
-
   return (
     <ModalOpenContextProvider>
       <ModalHookCodeContextProvider>
@@ -35,7 +34,7 @@ function Home() {
           <Title/>
           <ModalCloseContextProvider>
             <HookList hooksCollection={hooksCollectionData} />
-            <Modal />
+            <ModalProvider />
           </ModalCloseContextProvider>
           <Footer/>
         </div>
