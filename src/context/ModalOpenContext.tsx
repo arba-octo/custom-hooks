@@ -3,7 +3,7 @@
 import { createContext, ReactNode, useState } from 'react';
 
 type TModalOpenContext = {
-  toOpen: () => void;
+  toToggleOpen: () => void;
   isOpen: boolean;
 }
 
@@ -16,12 +16,12 @@ type TProps = {
 function ModalOpenContextProvider({ children }: TProps) {
 
   const [isOpen, setOpen] = useState(false);
-  const toOpen = () => {
-    setOpen(true);
+  const toToggleOpen = () => {
+    setOpen(!isOpen);
   };
 
   return (
-    <ModalOpenContext.Provider value={{ isOpen, toOpen }}>
+    <ModalOpenContext.Provider value={{ isOpen, toToggleOpen }}>
       {children}
     </ModalOpenContext.Provider>
   );
